@@ -155,14 +155,27 @@
         list-style: none;
       }
       .content__list li {
+        position: relative;
         padding: 5px 0;
       }
       .list__icon-wrapper {
+        position: absolute;
+        top: 0;
+        left: 0;
         display: inline-block;
         vertical-align: middle;
         width: 24px;
+        height: 24px;
         text-align: left;
-        margin-right: 5px;
+      }
+      .list__icon {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .list__text {
+        display: block;
+        padding-left: 30px;
       }
       .main__content-cta-wrapper {
         text-align: right;
@@ -352,19 +365,19 @@
                 <span class="list__icon-wrapper">
                   <img class="list__icon" alt="lightbulb" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAXCAYAAADk3wSdAAAAAXNSR0IArs4c6QAAArpJREFUOBGVVV1Ik2EUft53+1yTZQRFGIgiZKB5E0SX3STOqQSVJSFBkAbqRKi7bqS7fkBws1hdVBcKFURkbrOutItKr6KCuukPuhhEhj+Nqd93Ou/X9jq/fVv6wtj5ec7znvOeszNgsycYebZZqNwscCu4rZDGixKHonX5PqGVULQaJp2GRzxAvP+btv9PaIlchhAvOWYmB/XmBJuo7dYYzNUQ2+5oe3usHJZVC3OtFhBrMOgzJsIftZ8QQJXxSussrGeab83JzSPdnMUgiJ4D8gMkDL6gEVL8gLcshokLP3PQ/O/ipMHIdSa7BEkDgDGHRO9rO3CIJGajnbC4GrGzEomuhXxCJbs3qvXmURBOwFd+EJasQ2DXWx04JCzEw+MQsgeYv4KOhx7tywrupKbZw0ERrGYaUbFnEI9OpZ2BSPSN8cXzWEodcfrcSYmLI999HK4fZ0LTGaR1Kd8AVK/1rOBFMDJpyyTimOoftWXBOSTP/8KUE+7QSfzm6ytsazB6ly/YzfKcF8lwqwOq1DJ+K79r2flgYdbydHy3Tcn+czmXe/lCzGI5pea19DHpEPf6kxPkTmr47sHEcXSMBpwBWg9FmzjLNJJ9c9qWFdxJn3anIGgGS3RGB7SMnEVz9Jit98QM/kl3wWvwOxae4sOv3nQxdRt+70XANLGCNs5+AdvFCyxSEzelhvsxXEhZbPgVUs0m8e88bVUjgwbOrBKwOpHZxokwoRTv3QiVbX2huCGk5x0TneQVscLuBpAox8qfPpbb4KEnbiHKVpoU/mnQ8g7OWGG/6vVDGOZN9UUZ3U5pUkrXcFBVQaBgG9Fj7r59m9Pv3v0c6t+47GeV5zHvI/itixCq0IINo4wbzr523pnWXn6pazxmqmQ/kgM3NmAcSulMFTjROw3p4X/StUku+QCMsqsOjgL1L8Ud1DYvwXb/AAAAAElFTkSuQmCC">
                 </span>
-                <span>Wissenschaftliche Artikel, Experten-Webinare und Produktinformationen,</span>
+                <span class="list__text">Wissenschaftliche Artikel, Experten-Webinare und Produktinformationen,</span>
               </li>
               <li>
                 <span class="list__icon-wrapper">
                   <img class="list__icon" alt="reading a book" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAYCAYAAAAYl8YPAAAAAXNSR0IArs4c6QAAA6BJREFUOBGNVFtoVFcUXefcSUaTqFFbI0Ktz2qMYoUaotgIYpmH1gcYlaA/ikidpKIfCulP6IffkjsxCUrrW2wVYzCZKSqCICqi+WgkajIixOCzvsDHzNx7T9e5JWQ6cxPccOfOOXvvtR9r7wt8jqwyJ6FeSfcZxl4MqQt1+IHEr3CwFAIpKDUWQvTAkL+gPdLt5Se9LlF1aByc3k8EKgDy1yJeW4kJxRWAaITlnEWgYbmXn3dmAfMIpOhErGZ/jlOoeQ6c1F3APwl/bX+Sqc/NbEXTXEBNQElhM4LmLuh+aam/4kMgGoGBNMveCaQ2ZwLp/7lgtjWN5dzHk/eXoVCKpOpHoHk+bnSdhHAWIZ2+TL1Fz6nZYL7sCxpOgVAboJyJGGFsRNIJM4uDBF4In+87OPaXJKMejsghITczhQ8MkGDkWiTtLpbci/jP5TDEOthWKxw1G8IwGbA/NxGvm2BDKxmr81JB9zRo3sKqgyXZeo8yaZLnr0YqdQ0BswAjZAvOR/oQOj4a4u1iWOkYLSrRtu1ZNpj3aGirzUcL8fJdHXtXyT4aLLeQt/cg/HWIbU9kA3mff2yZnKNY8RsZpig1GHzN78WoaizKtB1Uhg99DfvjaXrM5BwlIORF2GIypF3GzGyyWUhSHnMrOnmeBTg/EKiPdrsRr+nQoINgwWgbgUrp5Oet4PsLMiahxDPkieNIqyDPs3nPPstX9P1IQMkAJezCFHREnmYQ4BA6fzVEEaO/mcF1YmmK++gsgyX2EOQlQc4R5Aq34AGkkcCFmn4yexE+Z6TOLAPMOAzYCyDffeJO3qFOP2f4gKw+R56xCe07LrnngZ9w47ecuxiSefzCDKxT0NxE1prY4PmwrASCjUsG7Id8h81q2HacpbPMZDfn8nuJqpYxBDmGAjGHjdwDw1jA0vYNCaIV2sdWJyCL5iFWu9f1EdgnOYQ+fvSu41zNPy7A+FE9BCeDw8gHm2sobiK25YVrZfgekKhS6YIo9CBk7kfoQAVevOkiuG700NK+4zVtutn8Btcnnfqbxm2MQBldsoVsFUHZu9lGkwRsc++H+6mIbCXbI10foQ6wRVv/A/tzvU3FV0y9E1Jdxcqm4uFwUPVHPm5Hv2ECrbQr5xyeYqYZ6xGOcgOcn3ip52sGgXWAh3zrPdzLN9nmPGm94qACj8jkQ87bBQ5sXAcf3AB9ypS10fFIO9NhSYKjjJZ9BO8lWALl/IrUC075/+VfZ3dCzcCrgzkAAAAASUVORK5CYII=">
                 </span>
-                <span>zugeschnitten auf Ihre Wünsche und Bedürfnisse,</span>
+                <span class="list__text">zugeschnitten auf Ihre Wünsche und Bedürfnisse,</span>
               </li>
               <li>
                 <span class="list__icon-wrapper">
                   <img class="list__icon" alt="dialog bubble" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAPCAYAAAALWoRrAAAAAXNSR0IArs4c6QAAArBJREFUOBGVU1tIVFEUXefOOKU5PcRSiqIX9pAoKKqfoCAjR0witAd+OASZ5Qj9JfRh/Vb0GKdpCso/ywpkSGemMCgJhJJE+4gwrK/GIMy0Zu7M3Htax3GuGhHM+bj7nL3XWWfvvfYV+NeqDBQipbtgYjfDWwFRACEnIIWTNkb7EZCDsOcE0dXw/m8KMcdx2L8M8VQjpDwIoT2HEL2Quf3Y5f6OFmFOYas7chGLboHBx6Q4Rt84BK4i5Hmd4ZohrfKthG72MnAbxfnX0eaOZ0D/ta7WMpjyPCSCiHhuKGyatNK7EUl0McM6RJoUcXZLZT8xGmFLHiPcdFOgusOBn6NPoeEaSwhlxzYLXXd/PqKTH6CJowIVvn0wjJN8odaCVAbykExcZCFhhBt7UH5vKeSvc3y4Hd2eIbhaS1hVLUyHH5H6r9Y9l/cIe71XQ8rcQEEGrIDaJBNNVDkKaZ5Aue8ACS/zPAKDirt8xeyhj6V+g9A/o0Vq1l3pGCCuRONH8tUZwaYQsgJSc/Cx1Yw7SHCc4zXC81ukbCrL/ZA2JiIG8ca/yCKFptNn12DHOzp3zAS4c+ZVkWwxSfqw82w3bDnbuT/FEWrDs9OviCiDNC7RXkDXmTHrroyXcgq+KKGUckFeuItIY4cFyHaj2tDn7YSwtabLLg+sg6kPI9e5BJ3uH9nyTfW1z/uQpQ8j7GlONzlU/4lE/dB/78masMK3iRm+ZKVjilDdT2eqxiplNmNhURXiYwuQ1N2M6RA5vQg1qJ7PXYe8y5EQ2yhgDQNrSXOLo/cgAxKcOf5mpp+OAIOlBG7mf/+E1mDTmblcT/844xwx5FNAJ88G0xmiL4j8oh48qklkCJW1E7iGNkV1V3DfjlXzXuBOfXIadIVC2jA5WQAtVghDi8Emx+coPg2cbf4ABGQDdHXbPMYAAAAASUVORK5CYII=">
                 </span>
-                <span>ganz einfach per E-Mail oder SMS.</span>
+                <span class="list__text">ganz einfach per E-Mail oder SMS.</span>
               </li>
             </ul>
             <p>Als Ihr Nestlé Ansprechpartner bin ich jetzt noch schneller für Sie erreichbar:</p>
