@@ -188,6 +188,7 @@
         background: linear-gradient(180deg, rgba(252,247,191,0) 0%, #FFF482 100%);
       }
       .main__nav {
+        display: block;
         width: 100%;
         max-width: 100%;
         padding: 0 7.8125%;
@@ -212,6 +213,9 @@
         font-size: 12px;
         line-height: 15px;
         text-decoration: none;
+      }
+      .item__cta.last {
+        font-weight: normal;
       }
       .disclaimer__decoration {
         display: block;
@@ -294,20 +298,20 @@
       <tfoot>
         <tr>
           <td>
-            <ul class="main__nav">
-              <li class="nav__item">
+            <span class="main__nav">
+              <span class="nav__item">
                 <a class="item__cta" href="#" target="_blank">&#62; Nestlé MedCONNECT</a>
-              </li>
-              <li class="nav__item">
+              </span>
+              <span class="nav__item">
                 <a class="item__cta" href="#" target="_blank">&#62; Impressum</a>
-              </li>
-              <li class="nav__item">
+              </span>
+              <span class="nav__item">
                 <a class="item__cta" href="#" target="_blank">&#62; Datenshutz</a>
-              </li>
-              <li class="nav__item">
-                <a class="item__cta" href="#" target="_blank">Abmelden</a>
-              </li>
-            </ul>
+              </span>
+              <span class="nav__item">
+                <a class="item__cta last" href="#" target="_blank">Abmelden</a>
+              </span>
+            </span>
           </td>
         </tr>
         <tr>
